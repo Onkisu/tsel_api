@@ -30,8 +30,14 @@ class KpiWeeklyService
                 DB::raw('SUM(CASE WHEN activation_status = 1 THEN 1 ELSE 0 END) as total_activations'),
                 DB::raw('ROUND(AVG(churn_rate), 2) as avg_churn')
             )
-            ->whereBetween('date', [$startDate, $endDate])
-            ->groupBy('site_id', 'region', 'sto', 'vendor');
+           if($week) 
+        { $query->whereBetween('date', [$startDate, $endDate]);
+          $query->groupBy('site_id', 'region', 'sto', 'vendor');
+        }else{
+             $query->groupBy('week','site_id', 'region', 'sto', 'vendor');
+        }
+            
+           
 
         if ($region) $query->where('region', $region);
         if ($sto) $query->where('sto', $sto);
