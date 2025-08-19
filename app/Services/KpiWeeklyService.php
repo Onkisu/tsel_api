@@ -7,7 +7,7 @@ class KpiWeeklyService
 {
     public function getWeeklyKpi(array $filters)
     {
-        $week = $filters['week'] ?? null; // Default to current week if not provided
+        $week = $filters['week'] ?? getCurrentIsoWeek(); // Default to current week if not provided
         $region = $filters['region'] ?? null;
         $sto = $filters['sto'] ?? null;
         $site_id = $filters['site_id'] ?? null;
