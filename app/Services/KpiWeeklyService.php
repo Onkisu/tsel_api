@@ -29,20 +29,18 @@ class KpiWeeklyService
                 DB::raw('ROUND(SUM(payload), 2) as total_payload'),
                 DB::raw('SUM(CASE WHEN activation_status = 1 THEN 1 ELSE 0 END) as total_activations'),
                 DB::raw('ROUND(AVG(churn_rate), 2) as avg_churn')
-            )
-           if($week) 
-        { $query->whereBetween('date', [$startDate, $endDate]);
-          $query->groupBy('site_id', 'region', 'sto', 'vendor');
-        }else{
-             $query->groupBy('week','site_id', 'region', 'sto', 'vendor');
-        }
-            
-           
+            );
 
+        if($week) $query->whereBetween('date', [$startDate, $endDate]);
         if ($region) $query->where('region', $region);
         if ($sto) $query->where('sto', $sto);
         if ($site_id) $query->where('site_id', $site_id);
         if ($vendor) $query->where('vendor', $vendor);
+        if($week) {
+           $query->groupBy('site_id', 'region', 'sto', 'vendor');
+        } else {
+           $query->groupBy('week','site_id', 'region', 'sto', 'vendor');
+        }
 
         return $query->get();
     }
