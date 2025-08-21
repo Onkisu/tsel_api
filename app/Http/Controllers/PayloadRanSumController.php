@@ -28,9 +28,16 @@ class PayloadRanSumController extends Controller
             'kabupaten' => 'nullable|string',
         ]);
 
-        $PayValue = $this->payloadService->getRanSum($validated);
+       $PayValue = $this->payloadService->getRanSum($validated);
+       $PayValue = PayValue::paginate(200);
+
         // $perPage = $request->integer('per_page', 100); // damn broo bugged
         // $rows = $kpiData->paginate($perPage); // damn broo bugged
-        return PayloadRanSumResource::collection($PayValue);
+        return response()->json(
+            PayloadRanSumResource::collection($PayValue),
+            200,
+            [],
+            JSON_PRETTY_PRINT
+          );
     }
 }
