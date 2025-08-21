@@ -19,6 +19,7 @@ class PayloadRanSumController extends Controller
     public function ranSumPayload(Request $request)
     {
         $validated = $request->validate([
+            'node' => 'nullable|string',
             'region' => 'nullable|string',
             'site_id' => 'nullable|string',   // karena site_id bisa JKT001 dll
             'cell_name' => 'nullable|string',
