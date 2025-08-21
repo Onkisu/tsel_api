@@ -25,8 +25,8 @@ class KpiWeeklyController extends Controller
         ]);
 
         $kpiData = $this->kpiService->getWeeklyKpi($validated);
-        // $perPage = $request->integer('per_page', 100);
-        // $rows = $kpiData->paginate($perPage);
+        // $perPage = $request->integer('per_page', 100); // damn broo bugged
+        // $rows = $kpiData->paginate($perPage); // damn broo bugged
         return KpiWeeklyResource::collection($kpiData);
     }
 }
