@@ -12,5 +12,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/kpis', [KpiController::class, 'getKpis']);
     Route::get('/kpis/weekly', [KpiWeeklyController::class, 'weeklyKpi']);
     Route::get('/payloads/ransum', [PayloadRanSumController::class, 'ranSumPayload']);
+    Route::get('/payloads/reports', [PayloadReportController::class, 'index']);
 });
 
