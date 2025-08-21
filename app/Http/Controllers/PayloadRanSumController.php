@@ -29,7 +29,7 @@ class PayloadRanSumController extends Controller
         ]);
 
        $PayValue = $this->payloadService->getRanSum($validated);
-       $PayValue = PayValue::paginate(200);
+       //$PayValue = PayValue::paginate(200);
 
         // $perPage = $request->integer('per_page', 100); // damn broo bugged
         // $rows = $kpiData->paginate($perPage); // damn broo bugged
