@@ -63,21 +63,21 @@ class PayloadRanSumService
         return $query->get();
     }
 
-   private function getmonthRange(string $month)
-{
-    // Format YYYYWW, misal 202512
-    $year = substr($month, 0, 4);
-    $monthNumber = substr($month, 4, 2);
+//    private function getmonthRange(string $month)
+// {
+//     // Format YYYYWW, misal 202512
+//     $year = substr($month, 0, 4);
+//     $monthNumber = substr($month, 4, 2);
 
-    $date = new \DateTime();
-    $date->setISODate((int)$year, (int)$monthNumber);
+//     $date = new \DateTime();
+//     $date->setISODate((int)$year, (int)$monthNumber);
 
-    $start = $date->format('Y-m-d');  // Senin
-    $date->modify('+6 days');
-    $end = $date->format('Y-m-d');    // Minggu
+//     $start = $date->format('Y-m-d');  // Senin
+//     $date->modify('+6 days');
+//     $end = $date->format('Y-m-d');    // Minggu
 
-    return ['start' => $start, 'end' => $end];
-}
+//     return ['start' => $start, 'end' => $end];
+// }
 
 // private function getCurrentIsomonth(): string
 //     {
