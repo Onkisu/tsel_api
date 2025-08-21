@@ -50,8 +50,8 @@ class PayloadRanSumService
                 'total_payload_mbyte',
                 'traffic_erl',
             )
-          ->orderBy('node', 'asc')
-          ->limit($limit);
+          ->orderBy('node', 'asc');
+
         if ($node) $query->where('node', $node);
         if ($region) $query->where('region', $region);
         if ($site_id) $query->where('site_id', $site_id);
@@ -61,7 +61,7 @@ class PayloadRanSumService
         if ($kecamatan) $query->where('kecamatan', $kecamatan);
         if ($kabupaten) $query->where('kabupaten', $kabupaten);
 
-        return $query->get();
+        return $query->limit($limit)->get();
     }
 
 //    private function getmonthRange(string $month)
