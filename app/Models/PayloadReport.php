@@ -18,7 +18,7 @@ class PayloadReport extends Model
      */
         public static function getMonthlyVendorSummary()
         {
-            return DB::select("SELECT * FROM net.v_summary_monthly_py_vendor_v3");
+            return DB::select("SELECT * FROM net.v_summary_monthly_py_vendor_v3"); // better raw query
         }
 
 }

@@ -13,7 +13,12 @@ class PayloadReportController extends Controller
 {
     try {
         $reports = PayloadReport::getMonthlyVendorSummary();
-        return response()->json($reports);
+        return response()->json(
+            $reports,
+            200,
+            [],
+            JSON_PRETTY_PRINT
+        );
     } catch (\Exception $e) {
         return response()->json([
             'error' => $e->getMessage()
