@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Services\PayloadRanSumService;
-use App\Http\Resources\PayloadRanSumResources; // Corrected namespace
+use App\Http\Resources\PayloadRanSumResource; // Corrected namespace
 
 
 class PayloadRanSumController extends Controller
@@ -31,6 +31,6 @@ class PayloadRanSumController extends Controller
         $PayValue = $this->payloadService->get($validated);
         // $perPage = $request->integer('per_page', 100); // damn broo bugged
         // $rows = $kpiData->paginate($perPage); // damn broo bugged
-        return PayloadRanSumService::collection($PayValue);
+        return PayloadRanSumResource::collection($PayValue);
     }
 }

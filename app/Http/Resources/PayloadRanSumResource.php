@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PayloadRanSumResources extends JsonResource
+class PayloadRanSumResource extends JsonResource
 {
     /**
      * Transform the resource into an array.

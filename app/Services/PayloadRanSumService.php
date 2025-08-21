@@ -2,7 +2,7 @@
 
 namespace App\Services;
 use Illuminate\Support\Facades\DB;
-use App\Http\Resources\PayloadRanSumResources; // Corrected namespace
+use App\Http\Resources\PayloadRanSumResource; // Corrected namespace
 
 class PayloadRanSumService
 {
