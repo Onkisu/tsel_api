@@ -16,8 +16,9 @@ class PayloadReport extends Model
      *
      * @return \Illuminate\Support\Collection
      */
-    public static function getMonthlyVendorSummary()
-    {
-        return DB::table('net.v_summary_monthly_py_vendor_v3')->get();
-    }
+        public static function getMonthlyVendorSummary()
+        {
+            return DB::select("SELECT * FROM net.v_summary_monthly_py_vendor_v3");
+        }
+
 }
