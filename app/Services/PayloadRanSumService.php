@@ -19,6 +19,7 @@ class PayloadRanSumService
         $band = $filters['band'] ?? null;
         $kecamatan = $filters['kecamatan'] ?? null;
         $kabupaten = $filters['kabupaten'] ?? null;
+        $limit = $filters['limit'] ?? 200; // Default limit for pagination
         // $longitude = $filters['longitude'] ?? null;
         // $latittude = $filters['latittude'] ?? null;
         // $rev_total = $filters['rev_total'] ?? null;
@@ -49,7 +50,8 @@ class PayloadRanSumService
                 'total_payload_mbyte',
                 'traffic_erl',
             )
-          ->orderBy('node', 'asc');
+          ->orderBy('node', 'asc')
+          ->limit($limit);
         if ($node) $query->where('node', $node);
         if ($region) $query->where('region', $region);
         if ($site_id) $query->where('site_id', $site_id);

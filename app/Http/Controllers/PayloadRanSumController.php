@@ -26,6 +26,7 @@ class PayloadRanSumController extends Controller
             'band' => 'nullable|string',
             'kecamatan' => 'nullable|string',
             'kabupaten' => 'nullable|string',
+            'limit' => 'nullable|integer|min:1|max:1000', // Optional limit for pagination
         ]);
 
        $PayValue = $this->payloadService->getRanSum($validated);
