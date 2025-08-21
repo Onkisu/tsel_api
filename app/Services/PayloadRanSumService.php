@@ -23,7 +23,7 @@ class PayloadRanSumService
         $latittude = $filters['latittude'] ?? null;
         $rev_total = $filters['rev_total'] ?? null;
         $total_payload_mbyte = $filters['total_payload_mbyte'] ?? null;
-        $traffic_erlang = $filters['traffic_erl'] ?? null;
+        $traffic_erl = $filters['traffic_erl'] ?? null;
 
         // Parse month ke tanggal mulai dan selesai
         // $dates = $this->getmonthRange($month);
