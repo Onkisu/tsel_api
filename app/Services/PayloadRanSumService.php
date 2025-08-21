@@ -2,13 +2,13 @@
 
 namespace App\Services;
 use Illuminate\Support\Facades\DB;
-use App\Http\Resources\PayloadRanSumResource; // Corrected namespace
+
 
 class PayloadRanSumService
 {
     public function getRanSum(array $filters)
     {
-        $month = $filters['month'] ?? null; // Default to current month if not provided
+        // $month = $filters['month'] ?? null; // Default to current month if not provided
         $node = $filters['node'] ?? null; // Not used in this query, but kept for consistency
         $vendor = $filters['vendor'] ?? null;
         $region = $filters['region'] ?? null;
@@ -19,11 +19,11 @@ class PayloadRanSumService
         $band = $filters['band'] ?? null;
         $kecamatan = $filters['kecamatan'] ?? null;
         $kabupaten = $filters['kabupaten'] ?? null;
-        $longitude = $filters['longitude'] ?? null;
-        $latittude = $filters['latittude'] ?? null;
-        $rev_total = $filters['rev_total'] ?? null;
-        $total_payload_mbyte = $filters['total_payload_mbyte'] ?? null;
-        $traffic_erl = $filters['traffic_erl'] ?? null;
+        // $longitude = $filters['longitude'] ?? null;
+        // $latittude = $filters['latittude'] ?? null;
+        // $rev_total = $filters['rev_total'] ?? null;
+        // $total_payload_mbyte = $filters['total_payload_mbyte'] ?? null;
+        // $traffic_erl = $filters['traffic_erl'] ?? null;
 
         // Parse month ke tanggal mulai dan selesai
         // $dates = $this->getmonthRange($month);
@@ -49,9 +49,8 @@ class PayloadRanSumService
                 'total_payload_mbyte',
                 'traffic_erl',
             )
-          ->groupBy('site_id', 'region', 'sto', 'vendor')
           ->orderBy('node', 'asc');
-
+        if ($node) $query->where('node', $node);
         if ($region) $query->where('region', $region);
         if ($site_id) $query->where('site_id', $site_id);
         if ($cell_name) $query->where('cell_name', $cell_name);
