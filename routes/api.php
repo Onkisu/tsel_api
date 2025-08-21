@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KpiController;
 use App\Http\Controllers\KpiWeeklyController;
+use App\Http\Controllers\PayloadRanSumController;
 
 
 Route::middleware('auth:sanctum')->group(function () {
