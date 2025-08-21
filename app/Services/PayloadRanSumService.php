@@ -26,9 +26,9 @@ class PayloadRanSumService
         $traffic_erlang = $filters['traffic_erl'] ?? null;
 
         // Parse month ke tanggal mulai dan selesai
-        $dates = $this->getmonthRange($month);
-        $startDate = $dates['start'];
-        $endDate = $dates['end'];
+        // $dates = $this->getmonthRange($month);
+        // $startDate = $dates['start'];
+        // $endDate = $dates['end'];
 
         $query = DB::table('net.py_fix_v3')
             ->select(
